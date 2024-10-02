@@ -1,14 +1,18 @@
 import React from "react";
-import { instructor } from "../assets/data/instructor";
 import { Swiper, SwiperSlide } from "swiper/react";
-
+import useGetProfile from "../hooks/useFetchData";
 import { Autoplay } from "swiper/modules";
 
 // Import Swiper styles
 import "swiper/css";
 import { Link } from "react-router-dom";
+import { BASE_URL } from "../config";
 
 const Instructor = () => {
+  const { data, loading, error } = useGetProfile(`${BASE_URL}/instactor`);
+
+  console.log(data);
+
   return (
     <div className="md:px-[80px] px-[20px] md:py-[50px] py-[30px] bg-[#f4f5f8]">
       <div className="flex flex-col items-center justify-center">
@@ -40,26 +44,26 @@ const Instructor = () => {
               spaceBetween: 10,
             },
             1024: {
-              slidesPerView: 5,
+              slidesPerView: 4,
               spaceBetween: 30,
             },
           }}
           modules={[Autoplay]}
           className="mySwiper"
         >
-          {instructor?.map((item, index) => (
+          {data?.map((item, index) => (
             <SwiperSlide
               key={index}
               className="text-center bg-[#ffffff] p-[15px] hover_effect rounded-md"
             >
               <Link to={"/"}>
-                <img className="h-[240px] w-full" src={item?.image} alt="" />
+                <img className="h-[240px] w-full" src={item?.photo} alt="" />
                 <div className="pt-[8px]">
                   <h4 className="text-[20px] capitalize text-[#272727] font-bold categori_name">
                     {item?.name}
                   </h4>
                   <p className="text-[16px] text-[#666464] font-medium leading-[15px] pb-[8px]">
-                    {item?.role}
+                    {item?.occupation}
                   </p>
                 </div>
               </Link>

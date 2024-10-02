@@ -8,6 +8,7 @@ import Sponser from "./Sponser";
 import Pricing from "./Pricing";
 import Instructor from "./Instructor";
 import Testimonial from "./Testimonial";
+import Newslatter from "./Newslatter";
 
 const Home = () => {
   return (
@@ -21,6 +22,7 @@ const Home = () => {
       <Instructor />
       <Testimonial />
       <Blog />
+      <Newslatter />
     </div>
   );
 };

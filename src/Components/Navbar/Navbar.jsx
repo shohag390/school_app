@@ -1,9 +1,8 @@
 import { Link, NavLink } from "react-router-dom";
-import logo1 from "../../assets/image/logp2.png";
-import logo2 from "../../assets/image/logo1.png";
 import { useContext, useState } from "react";
 import { authContext } from "../../context/AuthContext";
 import { IoClose, IoMenu } from "react-icons/io5";
+import logo from "../../assets/images/logo.png";
 
 const navLink = [
   {
@@ -47,35 +46,25 @@ const Navbar = () => {
   return (
     <nav
       className={`${
-        navbar ? "bg-[#06042e]" : "bg-[#ffffff] shadow-md"
+        navbar
+          ? "bg-[#f4f5f8] shadow-md border-b-[1px]"
+          : "bg-[#ffffff] border-b-[1px]"
       } flex items-center justify-between md:px-[80px] px-[20px] duration-500 md:h-[10vh] h-[8vh] sticky top-0 left-0 z-50`}
     >
       <Link to={"/"}>
-        {navbar ? (
-          <img
-            className="md:h-[55px] md:w-[180px] w-[130px] h-[40px]"
-            src={logo2}
-            alt="logo"
-          />
-        ) : (
-          <img
-            className="md:h-[55px] md:w-[180px] w-[130px] h-[40px]"
-            src={logo1}
-            alt="logo"
-          />
-        )}
+        <img src={logo} alt="" />
       </Link>
       <ul className="md:flex md:items-center md:gap-[40px] hidden">
         {navLink?.map((item, index) => (
           <li
             key={index}
             className={`${
-              navbar ? "text-[#ffffff]" : "text-[#06042e]"
-            } md:text-[19px] md:font-semibold `}
+              navbar ? "text-[#272727]" : "text-[#272727]"
+            } md:text-[18px] text-[17px] md:font-medium `}
           >
             <NavLink
               className={(navClass) =>
-                navClass?.isActive ? "text-[#ffc224]" : "hover:text-[#ffc224]"
+                navClass?.isActive ? "text-[#ffa03a]" : "hover:text-[#ffa03a]"
               }
               to={item?.path}
             >
@@ -93,8 +82,8 @@ const Navbar = () => {
               }`}
             >
               <img
-                className={`md:h-[45px] md:w-[45px] h-[40px] w-[40px] rounded-full border-[1px] ${
-                  navbar ? "border-[#ffffff]" : "border-[#06042e]"
+                className={`md:h-[45px] md:w-[45px] h-[40px] w-[40px] rounded-full border-[2px] ${
+                  navbar ? "border-[#ffffff]" : "border-[#272727]"
                 }`}
                 src={user?.photo}
                 alt=""
@@ -102,7 +91,7 @@ const Navbar = () => {
             </Link>
           ) : (
             <Link
-              className="md:py-[10px] py-[7px] md:px-[35px] px-[20px] btnNav"
+              className="md:py-[8px] py-[7px] md:px-[35px] px-[20px] bg-[#6045ff] text-[#ffffff] font-bold rounded-full hover:bg-[#ffa03a] duration-500 border-[2px] border-[#ffffff] shadow_box"
               to={"/login"}
             >
               Login
@@ -112,7 +101,7 @@ const Navbar = () => {
         <button
           onClick={() => setOpen(!open)}
           className={`${
-            navbar ? "text-[#ffffff]" : "text-[#06042e]"
+            navbar ? "text-[#272727]" : "text-[#06042e]"
           } md:hidden`}
         >
           {!open ? (
@@ -126,7 +115,7 @@ const Navbar = () => {
         className={`${
           !open ? "left-[-100%]" : "left-0"
         } md:hidden absolute top-[8vh] duration-500 ${
-          navbar ? "bg-[#06042e] text-[#ffffff]" : "bg-[#ffffff] text-[#06042e]"
+          navbar ? "bg-[#f4f5f8] text-[#272727]" : "bg-[#ffffff] text-[#272727]"
         } w-full h-[92vh] flex flex-col justify-center items-center gap-[20px]`}
       >
         {navLink?.map((item, index) => (
@@ -134,7 +123,9 @@ const Navbar = () => {
             <NavLink
               onClick={() => setOpen(!open)}
               className={(navClass) =>
-                navClass?.isActive ? "text-[#ffc224]" : "hover:text-[#ffc224]"
+                navClass?.isActive
+                  ? "text-[#ffa03a] text-[17px]"
+                  : "hover:text-[#ffa03a] text-[17px]"
               }
               to={item?.path}
             >

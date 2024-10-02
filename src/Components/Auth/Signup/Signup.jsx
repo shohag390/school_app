@@ -68,7 +68,7 @@ const Signup = () => {
 
   return (
     <div className="w-full py-[30px] md:px-[80px] bg-[#efebf9] px-[20px] flex items-center justify-center">
-      <div className="h-[85vh] w-[90%] border-[2px] rounded-md flex items-center justify-between">
+      <div className="h-[100vh] w-[90%] border-[2px] rounded-md flex items-center justify-between">
         <div className="w-1/2 h-full bg-[#5751e1] text-[#ffffff] flex items-center justify-center flex-col px-[30px] py-[50px]">
           <h1 className="md:text-[30px] text-[25px] font-[700] md:leading-[45px] leading-[35px] text-[#ffffff] capitalize">
             Join SkillGro !
@@ -176,12 +176,8 @@ const Signup = () => {
           </div>
 
           <div className="w-full">
-            <button
-              disabled={loading && true}
-              type="submit"
-              className="btnOne rounded-[8px] py-[8px] w-full"
-            >
-              {loading ? <HashLoader size={18} color="#ffffff" /> : "Sign Up"}
+            <button type="submit" className="rounded-[8px] py-[8px] w-full">
+              Sign Up
             </button>
           </div>
         </form>

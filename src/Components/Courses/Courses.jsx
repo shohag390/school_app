@@ -1,11 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import { courses } from "../../assets/data/data";
 import { Link } from "react-router-dom";
 import { IoDocumentText } from "react-icons/io5";
 import { MdCalendarMonth } from "react-icons/md";
 import { MdPriceChange } from "react-icons/md";
+import useGetProfile from "../../hooks/useFetchData";
+import { BASE_URL } from "../../config";
 
 const Courses = () => {
+  const { data, loading, error } = useGetProfile(`${BASE_URL}/course`);
+
+  const topEight = data?.slice(0, 8);
+
   return (
     <div className="md:px-[80px] px-[20px] md:py-[50px] py-[30px] bg-[#f4f5f8]">
       <div className="flex flex-col items-center justify-center">
@@ -15,25 +21,32 @@ const Courses = () => {
         <h4 className="md:font-[700] font-[600] md:text-[45px] text-[38px] md:leading-[48px] leading-[46px] md:pt-[15px] pt-[10px]">
           Popular <span className="text-[#ffa03a] text_style">Courses</span>
         </h4>
-        <p className="md:px-[500px] text-center text-[#666464] md:text-[18px] text-[17px] md:font-medium md:pt-[15px] pt-[10px]">
+        <p className="md:px-[400px] text-center text-[#666464] md:text-[18px] text-[17px] md:font-medium md:pt-[15px] pt-[10px]">
           Educaation is key to success and freedon from all the forces is a
           power.
         </p>
       </div>
       <div className="grid md:grid-cols-4 md:gap-[30px] gap-[20px] md:py-[35px] py-[25px]">
-        {courses?.map((item, index) => (
-          <div
-            key={index}
+        {topEight?.map((item) => (
+          <Link
+            to={`/courses/${item?._id}`}
+            key={item?._id}
             className="bg-[#ffffff] p-[15px] rounded-md hover_effect"
           >
-            <img className="w-full rounded-sm" src={item?.image} alt="" />
+            <img
+              className="w-full md:h-[160px] h-[200px] rounded-sm"
+              src={item?.photo}
+              alt=""
+            />
             <div>
               <h4 className="categori_name text-[20px] text-[#272727] font-bold pt-[8px]">
-                {item?.category}
+                {item?.categorie}
               </h4>
+
               <p className="text-[16px] text-[#666464] font-medium leading-[15px] pb-[15px]">
-                {item?.techer}
+                {item.instactor?.name}
               </p>
+
               <p className="line-clamp-2 text-[#666464] md:text-[18px] text-[17px] md:font-medium">
                 {item?.description}
               </p>
@@ -58,13 +71,13 @@ const Courses = () => {
                 </p>
               </div>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
       <div className="flex items-center justify-center w-full">
         <Link
-          className="px-[35px] py-[12px] bg-[#6045ff] rounded-full text-[#ffffff]"
-          to={"/"}
+          className="md:py-[10px] py-[7px] md:px-[35px] px-[20px] bg-[#6045ff] text-[#ffffff] font-bold rounded-full hover:bg-[#ffa03a] duration-500 border-[2px] border-[#ffffff] shadow_box"
+          to={"/allcourses"}
         >
           All Courses
         </Link>
