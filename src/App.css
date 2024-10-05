@@ -5,8 +5,8 @@
   background-size: contain;
 }
 .box_style {
-  background: rgba(255, 255, 255, 0.15);
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: #ffffff26;
+  border: 1px solid #ffffff2e;
 }
 
 .hover_effect {
@@ -53,4 +53,45 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+.btn {
+  background-color: #6045ff;
+  color: #ffffff;
+  font-weight: bold;
+  box-shadow: 4px 4px 2px #272727;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background-color: #ffa03a;
+  box-shadow: none;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+
+.input_shadow {
+  box-shadow: 0px 0px 2px rgb(63, 63, 63);
+}
+
+.responsive_map {
+  overflow: hidden;
+  height: 0;
+  padding-bottom: 30%;
+  position: relative;
+}
+
+.responsive_map iframe {
+  border: 0;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  position: absolute;
 }

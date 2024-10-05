@@ -1,5 +1,4 @@
 import React from "react";
-import { instructor } from "../assets/data/instructor";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import { Autoplay } from "swiper/modules";

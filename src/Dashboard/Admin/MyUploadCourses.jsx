@@ -1,6 +1,5 @@
 import React from "react";
 import { FaBookBookmark } from "react-icons/fa6";
-import { courses } from "../../assets/data/data";
 import { IoDocumentText } from "react-icons/io5";
 import { MdCalendarMonth, MdPriceChange } from "react-icons/md";
 

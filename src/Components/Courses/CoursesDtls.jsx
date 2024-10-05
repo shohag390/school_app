@@ -303,11 +303,11 @@ const CoursesDtls = () => {
             <div>
               <div>
                 <h4 className="text-[25px] font-bold text-[#272727] pb-[20px] ">
-                  Review <span>(5)</span>
+                  Review <span>({data?.totalRating})</span>
                 </h4>
                 <div>
                   {data?.reviews?.map((item) => (
-                    <div className="flex flex-col gap-[15px]">
+                    <div key={item?._id} className="flex flex-col gap-[15px]">
                       <div className="flex items-center justify-between">
                         <div className="flex items-center justify-center gap-[10px]">
                           <img

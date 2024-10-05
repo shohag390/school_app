@@ -91,7 +91,7 @@ const Navbar = () => {
             </Link>
           ) : (
             <Link
-              className="md:py-[8px] py-[7px] md:px-[35px] px-[20px] bg-[#6045ff] text-[#ffffff] font-bold rounded-full hover:bg-[#ffa03a] duration-500 border-[2px] border-[#ffffff] shadow_box"
+              className="md:py-[8px] py-[7px] md:px-[35px] px-[20px] bg-[#6045ff] text-[#ffffff] font-bold rounded-md hover:bg-[#ffa03a] duration-500"
               to={"/login"}
             >
               Login

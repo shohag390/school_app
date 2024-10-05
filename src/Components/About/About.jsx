@@ -44,10 +44,7 @@ const About = () => {
           transformation consultancy and software development company that
           provides cutting edge engineering solutions.
         </p>
-        <Link
-          className="md:py-[10px] py-[7px] md:px-[35px] px-[20px] bg-[#6045ff] text-[#ffffff] font-bold rounded-full hover:bg-[#ffa03a] duration-500 border-[2px] border-[#ffffff] shadow_box"
-          to={"/"}
-        >
+        <Link className="btn py-[10px] px-[30px] rounded-md" to={"/"}>
           Learn More Us
         </Link>
       </div>

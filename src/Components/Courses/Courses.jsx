@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import { courses } from "../../assets/data/data";
 import { Link } from "react-router-dom";
 import { IoDocumentText } from "react-icons/io5";
 import { MdCalendarMonth } from "react-icons/md";
 import { MdPriceChange } from "react-icons/md";
 import useGetProfile from "../../hooks/useFetchData";
 import { BASE_URL } from "../../config";
+import Loading from "../Loader/Loading";
+import Error from "../Error/Error";
 
 const Courses = () => {
   const { data, loading, error } = useGetProfile(`${BASE_URL}/course`);
@@ -26,59 +27,60 @@ const Courses = () => {
           power.
         </p>
       </div>
-      <div className="grid md:grid-cols-4 md:gap-[30px] gap-[20px] md:py-[35px] py-[25px]">
-        {topEight?.map((item) => (
-          <Link
-            to={`/courses/${item?._id}`}
-            key={item?._id}
-            className="bg-[#ffffff] p-[15px] rounded-md hover_effect"
-          >
-            <img
-              className="w-full md:h-[160px] h-[200px] rounded-sm"
-              src={item?.photo}
-              alt=""
-            />
-            <div>
-              <h4 className="categori_name text-[20px] text-[#272727] font-bold pt-[8px]">
-                {item?.categorie}
-              </h4>
+      {loading && <Loading />}
+      {error && <Error />}
+      {!loading && !error && (
+        <div className="grid md:grid-cols-4 md:gap-[30px] gap-[20px] md:py-[35px] py-[25px]">
+          {topEight?.map((item) => (
+            <Link
+              to={`/courses/${item?._id}`}
+              key={item?._id}
+              className="bg-[#ffffff] p-[15px] rounded-md hover_effect"
+            >
+              <img
+                className="w-full md:h-[160px] h-[200px] rounded-sm"
+                src={item?.photo}
+                alt=""
+              />
+              <div>
+                <h4 className="categori_name text-[20px] text-[#272727] font-bold pt-[8px]">
+                  {item?.categorie}
+                </h4>
 
-              <p className="text-[16px] text-[#666464] font-medium leading-[15px] pb-[15px]">
-                {item.instactor?.name}
-              </p>
+                <p className="text-[16px] text-[#666464] font-medium leading-[15px] pb-[15px]">
+                  {item.instactor?.name}
+                </p>
 
-              <p className="line-clamp-2 text-[#666464] md:text-[18px] text-[17px] md:font-medium">
-                {item?.description}
-              </p>
-            </div>
-            <div className="flex items-center justify-between pb-[5px] pt-[10px] border-t-[1px] border-[#666464] md:mt-[15px] mt-[10px]">
-              <div className="flex items-center gap-[4px]">
-                <IoDocumentText className="course_icone text-[20px] text-[#666464]" />
-                <p className="text-[16px] font-medium text-[#666464]">
-                  {item?.quizzes}
+                <p className="line-clamp-2 text-[#666464] md:text-[18px] text-[17px] md:font-medium">
+                  {item?.description}
                 </p>
               </div>
-              <div className="flex items-center gap-[4px] ">
-                <MdCalendarMonth className="course_icone text-[20px] text-[#666464]" />
-                <p className="text-[16px] font-medium text-[#666464]">
-                  {item?.duration}
-                </p>
+              <div className="flex items-center justify-between pb-[5px] pt-[10px] border-t-[1px] border-[#666464] md:mt-[15px] mt-[10px]">
+                <div className="flex items-center gap-[4px]">
+                  <IoDocumentText className="course_icone text-[20px] text-[#666464]" />
+                  <p className="text-[16px] font-medium text-[#666464]">
+                    {item?.quizzes}
+                  </p>
+                </div>
+                <div className="flex items-center gap-[4px] ">
+                  <MdCalendarMonth className="course_icone text-[20px] text-[#666464]" />
+                  <p className="text-[16px] font-medium text-[#666464]">
+                    {item?.duration}
+                  </p>
+                </div>
+                <div className="flex items-center gap-[4px]">
+                  <MdPriceChange className="course_icone text-[20px] text-[#666464]" />
+                  <p className="text-[16px] font-medium text-[#666464]">
+                    ${item?.price}
+                  </p>
+                </div>
               </div>
-              <div className="flex items-center gap-[4px]">
-                <MdPriceChange className="course_icone text-[20px] text-[#666464]" />
-                <p className="text-[16px] font-medium text-[#666464]">
-                  ${item?.price}
-                </p>
-              </div>
-            </div>
-          </Link>
-        ))}
-      </div>
+            </Link>
+          ))}
+        </div>
+      )}
       <div className="flex items-center justify-center w-full">
-        <Link
-          className="md:py-[10px] py-[7px] md:px-[35px] px-[20px] bg-[#6045ff] text-[#ffffff] font-bold rounded-full hover:bg-[#ffa03a] duration-500 border-[2px] border-[#ffffff] shadow_box"
-          to={"/allcourses"}
-        >
+        <Link className="btn py-[10px] px-[30px] rounded-md" to={"/allcourses"}>
           All Courses
         </Link>
       </div>

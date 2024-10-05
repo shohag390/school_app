@@ -75,7 +75,7 @@ const Settings = ({ data }) => {
         action=""
       >
         <input
-          className="w-full py-[10px] border-[1px] border-[#140f86] px-[20px] bg-[#efebf9] rounded-[8px] focus:outline-none"
+          className="py-[8px] px-[20px] rounded-md w-full input_shadow"
           type="text"
           name="name"
           value={formData.name || ""}
@@ -83,7 +83,7 @@ const Settings = ({ data }) => {
           placeholder="Your Name"
         />
         <input
-          className="w-full py-[10px] border-[1px] border-[#140f86] px-[20px] bg-[#efebf9] rounded-[8px] focus:outline-none"
+          className="py-[8px] px-[20px] rounded-md w-full input_shadow"
           type="email"
           name="email"
           value={formData.email || ""}
@@ -91,7 +91,7 @@ const Settings = ({ data }) => {
           placeholder="Your Email"
         />
         <input
-          className="w-full py-[10px] border-[1px] border-[#140f86] px-[20px] bg-[#efebf9] rounded-[8px] focus:outline-none"
+          className="py-[8px] px-[20px] rounded-md w-full input_shadow"
           type="number"
           name="phone"
           value={formData.phone || ""}
@@ -99,7 +99,7 @@ const Settings = ({ data }) => {
           placeholder="Phone"
         />
         <input
-          className="w-full py-[10px] border-[1px] border-[#140f86] px-[20px] bg-[#efebf9] rounded-[8px] focus:outline-none"
+          className="py-[8px] px-[20px] rounded-md w-full input_shadow"
           type="text"
           name="occupation"
           value={formData.occupation || ""}
@@ -112,13 +112,13 @@ const Settings = ({ data }) => {
           value={formData.bio || ""}
           onChange={handleInputChange}
           rows={4}
-          className="w-full py-[10px] border-[1px] border-[#140f86] px-[20px] bg-[#efebf9] rounded-[8px] focus:outline-none "
+          className="py-[8px] px-[20px] rounded-md w-full input_shadow"
         ></textarea>
 
         <div className="flex items-center justify-between w-full">
           <div className="flex items-center gap-3">
             {formData.photo && (
-              <figure className="w-[60px] h-[60px] rounded-full border-2 border-solid border-primaryColor flex items-center justify-center">
+              <figure className="w-[40px] h-[40px] rounded-full border-2 border-solid border-primaryColor flex items-center justify-center">
                 <img
                   src={formData.photo || null}
                   className="w-full h-full rounded-full"
@@ -126,7 +126,7 @@ const Settings = ({ data }) => {
                 />
               </figure>
             )}
-            <div className="relative w-[130px] h-[50px]">
+            <div className="relative w-[130px] h-[40px]">
               <input
                 type="file"
                 name="photo"
@@ -137,7 +137,7 @@ const Settings = ({ data }) => {
               />
               <label
                 htmlFor="customFile"
-                className="absolute top-0 left-0 w-full h-full flex items-center px-[0.75rem] py-[0.375rem] text-[15px] leading-6 overflow-hidden bg-[#efebf9] text-headingColor font-semibold rounded-lg truncate cursor-pointer"
+                className="absolute top-0 left-0 w-full h-full flex items-center justify-center text-[15px] overflow-hidden bg-[#ffffff] font-semibold cursor-pointer rounded-md input_shadow text-[#272727]"
               >
                 Upload Photo
               </label>
@@ -149,7 +149,7 @@ const Settings = ({ data }) => {
           <button
             disabled={loading && true}
             type="submit"
-            className="btnOne w-full py-[10px]"
+            className="btn py-[8px] w-full rounded-md"
           >
             {loading ? (
               <HashLoader size={18} color="#ffffff" />

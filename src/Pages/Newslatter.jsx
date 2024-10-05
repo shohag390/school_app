@@ -19,13 +19,13 @@ const Newslatter = () => {
         <h4 className="md:text-[35px] text-[25px] text-center font-bold text-[#ffffff]">
           Subscribe To Our Newsletter
         </h4>
-        <div className="h-[45px] md:w-[35%] box_style rounded-full p-[2px]">
+        <div className="h-[45px] md:w-[35%] box_style rounded-md p-[2px] flex items-center justify-between">
           <input
-            className="placeholder:text-[#ffffff] bg-transparent h-full w-[70%] px-[30px] text-[#ffffff]"
+            className="placeholder:text-[#ffffff] rounded-md bg-transparent h-full w-[70%] px-[30px] text-[#ffffff]"
             type="email"
             placeholder="Email Address"
           />
-          <button className="bg-[#ffa03a] w-[30%] h-full rounded-full">
+          <button className="bg-[#ffa03a] hover:bg-[#f98202] duration-500 font-bold text-[#ffffff] w-[30%] h-full rounded-md">
             Subscribe
           </button>
         </div>

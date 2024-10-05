@@ -1,5 +1,6 @@
 import { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import login_image from "../../../assets/images/shape-bg.png";
 import { BASE_URL } from "../../../config.js";
 import { toast } from "react-toastify";
 import { authContext } from "../../../context/AuthContext.jsx";
@@ -53,28 +54,21 @@ const Login = () => {
     }
   };
   return (
-    <div className="md:h-[90vh] w-full md:px-[80px] bg-[#efebf9] px-[20px] flex items-center justify-center">
-      <div className="h-[70vh] w-[80%] border-[2px] rounded-md flex items-center justify-between">
-        <div className="w-1/2 h-full bg-[#5751e1] text-[#ffffff] flex items-center justify-center flex-col px-[30px] py-[50px]">
-          <h1 className="md:text-[30px] text-[25px] font-[700] md:leading-[45px] leading-[35px] text-[#ffffff] capitalize">
-            Welcome to login!
-          </h1>
-          <p>Don't have an account ?</p>
-          <Link
-            to={"/signup"}
-            className="btnThree py-[8px] px-[30px] mt-[15px]"
-          >
-            Sign up
-          </Link>
+    <div className="md:px-[80px] px-[20px] md:py-[40px] py-[25px] md:flex md:justify-between">
+      <div className="bg-[#6045ff] md:h-[80vh] w-full md:flex md:items-center md:justify-center hidden">
+        <img className="h-[70vh]" src={login_image} alt="" />
+      </div>
+      <div className="bg-[#f4f5f8] md:h-[80vh] w-full flex flex-col items-center justify-center md:py-0 py-[25px] md:rounded-none rounded-md">
+        <div className="pb-[30px]">
+          <h4 className="font-[700] text-[30px]">Let's Sign In Eduxo</h4>
         </div>
-
         <form
           onSubmit={submitHandler}
-          className="w-1/2 h-full bg-[#ffffff] flex flex-col items-center justify-center px-[30px] gap-[20px]"
+          className="flex flex-col w-full items-center justify-center md:px-[100px] px-[20px] md:gap-[20px] gap-[15px]"
           action=""
         >
           <input
-            className="w-full py-[10px] border-[1px] border-[#140f86] px-[20px] bg-[#efebf9] rounded-[8px] focus:outline-none"
+            className="py-[10px] px-[20px] rounded-md w-full input_shadow"
             type="email"
             name="email"
             value={formData.email}
@@ -84,7 +78,7 @@ const Login = () => {
           />
 
           <input
-            className="w-full py-[10px] border-[1px] border-[#140f86] px-[20px] bg-[#efebf9] rounded-[8px] focus:outline-none"
+            className="py-[10px] px-[20px] rounded-md w-full input_shadow"
             type="password"
             name="password"
             value={formData.password}
@@ -97,12 +91,18 @@ const Login = () => {
             <button
               disabled={loading && true}
               type="submit"
-              className="btnOne py-[8px] w-full rounded-[8px]"
+              className="btn py-[10px] w-full rounded-md"
             >
               {loading ? <HashLoader size={18} color="#ffffff" /> : "Login"}
             </button>
           </div>
         </form>
+        <p className="text-[#666464] md:text-[18px] text-[17px] md:font-medium md:pt-[25px] pt-[20px] capitalize">
+          Don't have account?{" "}
+          <Link className="text-[#6045ff] hover:text-[#ffa03a]" to={"/signup"}>
+            Sign Up Now
+          </Link>
+        </p>
       </div>
     </div>
   );

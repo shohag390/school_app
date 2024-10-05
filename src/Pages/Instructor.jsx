@@ -11,8 +11,6 @@ import { BASE_URL } from "../config";
 const Instructor = () => {
   const { data, loading, error } = useGetProfile(`${BASE_URL}/instactor`);
 
-  console.log(data);
-
   return (
     <div className="md:px-[80px] px-[20px] md:py-[50px] py-[30px] bg-[#f4f5f8]">
       <div className="flex flex-col items-center justify-center">

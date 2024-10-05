@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import uploadImageToCloudinary from "../../../utils/uploadCloudinary";
 import { BASE_URL } from "../../../config";
+import login_image from "../../../assets/images/signup-2.png";
 import { toast } from "react-toastify";
 import HashLoader from "react-spinners/HashLoader";
 
@@ -9,8 +10,6 @@ const Signup = () => {
   const [selectFile, setSelectFile] = useState(null);
   const [previewURL, setPreviewURL] = useState("");
   const [loading, setLoading] = useState(false);
-
-  // photo name email password phone occupation bio role
 
   const [formData, setFormData] = useState({
     name: "",
@@ -67,76 +66,81 @@ const Signup = () => {
   };
 
   return (
-    <div className="w-full py-[30px] md:px-[80px] bg-[#efebf9] px-[20px] flex items-center justify-center">
-      <div className="h-[100vh] w-[90%] border-[2px] rounded-md flex items-center justify-between">
-        <div className="w-1/2 h-full bg-[#5751e1] text-[#ffffff] flex items-center justify-center flex-col px-[30px] py-[50px]">
-          <h1 className="md:text-[30px] text-[25px] font-[700] md:leading-[45px] leading-[35px] text-[#ffffff] capitalize">
-            Join SkillGro !
-          </h1>
-          <p>Already have an account ?</p>
-          <Link to={"/login"} className="btnThree py-[8px] px-[30px] mt-[15px]">
-            Login
-          </Link>
+    <div className="md:px-[80px] px-[20px] md:py-[40px] py-[25px] md:flex md:justify-between">
+      <div className="bg-[#6045ff] md:h-[87vh] w-full md:flex md:items-center md:justify-center hidden">
+        <img className="h-[75vh]" src={login_image} alt="" />
+      </div>
+      <div className="bg-[#f4f5f8] md:h-[87vh] w-full flex flex-col items-center justify-center md:py-0 py-[25px] md:rounded-none rounded-md">
+        <div className="pb-[20px]">
+          <h4 className="font-[700] text-[30px]">Let's Sign Up Eduxo</h4>
         </div>
 
         <form
           onSubmit={submitHandler}
-          className="w-1/2 h-full bg-[#ffffff] flex flex-col gap-[20px] px-[30px] justify-center items-center"
+          className="flex flex-col w-full items-center justify-center md:px-[60px] px-[20px] gap-[15px]"
           action=""
         >
           <input
-            className="w-full py-[10px] border-[1px] border-[#140f86] px-[20px] bg-[#efebf9] rounded-[8px] focus:outline-none"
+            className="py-[8px] px-[20px] rounded-md w-full input_shadow"
             type="text"
             name="name"
             value={formData.name}
             onChange={handleInputChange}
             placeholder="Your Name"
+            required
           />
           <input
-            className="w-full py-[10px] border-[1px] border-[#140f86] px-[20px] bg-[#efebf9] rounded-[8px] focus:outline-none"
+            className="py-[8px] px-[20px] rounded-md w-full input_shadow"
             type="email"
             name="email"
             value={formData.email}
             onChange={handleInputChange}
             placeholder="Your Email"
+            required
           />
           <input
-            className="w-full py-[10px] border-[1px] border-[#140f86] px-[20px] bg-[#efebf9] rounded-[8px] focus:outline-none"
+            className="py-[8px] px-[20px] rounded-md w-full input_shadow"
             type="password"
             name="password"
             value={formData.password}
             onChange={handleInputChange}
             placeholder="Password"
+            required
           />
-          <input
-            className="w-full py-[10px] border-[1px] border-[#140f86] px-[20px] bg-[#efebf9] rounded-[8px] focus:outline-none"
-            type="number"
-            name="phone"
-            value={formData.phone}
-            onChange={handleInputChange}
-            placeholder="Phone"
-          />
-          <input
-            className="w-full py-[10px] border-[1px] border-[#140f86] px-[20px] bg-[#efebf9] rounded-[8px] focus:outline-none"
-            type="text"
-            name="occupation"
-            value={formData.occupation}
-            onChange={handleInputChange}
-            placeholder="Occupation"
-          />
+          <div className="flex items-center justify-between w-full gap-[15px]">
+            <input
+              className="py-[8px] px-[20px] rounded-md w-full input_shadow"
+              type="number"
+              name="phone"
+              value={formData.phone}
+              onChange={handleInputChange}
+              placeholder="Phone"
+              required
+            />
+            <input
+              className="py-[8px] px-[20px] rounded-md w-full input_shadow"
+              type="text"
+              name="occupation"
+              value={formData.occupation}
+              onChange={handleInputChange}
+              placeholder="Occupation"
+              required
+            />
+          </div>
           <textarea
             name="bio"
             value={formData.bio}
             onChange={handleInputChange}
+            rows={2}
             placeholder="Bio"
-            role="2"
-            className="w-full py-[10px] border-[1px] border-[#140f86] px-[20px] bg-[#efebf9] rounded-[8px] focus:outline-none "
+            required
+            className="py-[8px] px-[20px] rounded-md w-full input_shadow"
           ></textarea>
 
           <div className="flex items-center justify-between w-full">
             <div className="flex items-center gap-3">
               {selectFile && (
-                <figure className="w-[60px] h-[60px] rounded-full border-2 border-solid border-primaryColor flex items-center justify-center">
+                <figure className="w-[40px] h-[40px] rounded-full border-[1px] border-[#272727] flex items-center justify-center">
                   <img
                     src={previewURL}
                     className="w-full h-full rounded-full"
@@ -144,9 +148,10 @@ const Signup = () => {
                   />
                 </figure>
               )}
-              <div className="relative w-[130px] h-[50px]">
+              <div className="relative w-[130px] h-[40px]">
                 <input
                   type="file"
+                  required
                   name="photo"
                   id="customFile"
                   onChange={handleFileInputChange}
@@ -155,7 +160,7 @@ const Signup = () => {
                 />
                 <label
                   htmlFor="customFile"
-                  className="absolute top-0 left-0 w-full h-full flex items-center px-[0.75rem] py-[0.375rem] text-[15px] leading-6 overflow-hidden bg-[#efebf9] text-headingColor font-semibold rounded-lg truncate cursor-pointer"
+                  className="absolute top-0 left-0 w-full h-full flex items-center justify-center text-[15px] overflow-hidden bg-[#ffffff] font-semibold cursor-pointer rounded-md input_shadow text-[#272727]"
                 >
                   Upload Photo
                 </label>
@@ -167,7 +172,7 @@ const Signup = () => {
                 name="role"
                 value={formData.role}
                 onChange={handleInputChange}
-                className="w-full py-[10px] border-[1px] border-[#140f86] px-[20px] bg-[#efebf9] rounded-[8px] focus:outline-none"
+                className="py-[8px] px-[20px] rounded-md w-full input_shadow text-[15px] text-[#272727] font-semibold "
               >
                 <option value="student">student</option>
                 <option value="admin">techer</option>
@@ -176,14 +181,29 @@ const Signup = () => {
           </div>
 
           <div className="w-full">
-            <button type="submit" className="rounded-[8px] py-[8px] w-full">
-              Sign Up
+            <button
+              disabled={loading && true}
+              type="submit"
+              className="btn py-[8px] w-full rounded-md"
+            >
+              {loading ? <HashLoader size={18} color="#ffffff" /> : "Sign Up"}
             </button>
           </div>
         </form>
+
+        <p className="text-[#666464] md:text-[18px] text-[17px] md:font-medium pt-[20px] capitalize">
+          Don't have account?{" "}
+          <Link className="text-[#6045ff] hover:text-[#ffa03a]" to={"/login"}>
+            Login
+          </Link>
+        </p>
       </div>
     </div>
   );
 };
 
 export default Signup;
+
+{
+  /* ; */
+}

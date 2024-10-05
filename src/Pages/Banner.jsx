@@ -19,13 +19,13 @@ const Banner = () => {
           </p>
         </div>
 
-        <div className="md:w-[80%] flex items-center justify-between md:h-[55px] h-[45px] bg-[#f4f5f8] rounded-full border-[1px]">
+        <div className="md:w-[80%] flex items-center justify-between md:h-[55px] h-[45px] bg-[#f4f5f8] rounded-md border-[1px]">
           <input
             className="h-full md:w-[70%] w-[60%] bg-transparent md:px-[30px] px-[20px]"
             type="email"
             placeholder="Enter Your Email"
           />
-          <button className="md:h-[40px] h-[38px] md:w-[30%] w-[40%] bg-[#6045ff] text-[#ffffff] rounded-full md:mr-[8px] mr-[4px] hover:bg-[#ffa03a] duration-500">
+          <button className="md:h-[45px] h-[38px] md:w-[30%] w-[40%] rounded-md md:mr-[8px] mr-[4px] bg-[#ffa03a] hover:bg-[#f98202] duration-500 font-bold text-[#ffffff]">
             Subscribe Now
           </button>
         </div>

@@ -32,7 +32,7 @@ const footerLink01 = [
   },
   {
     path: "/",
-    display: "Work at Future Learn",
+    display: "Future Learn",
   },
   {
     path: "/",
@@ -72,19 +72,19 @@ const Footer = () => {
             src={logo}
             alt="logo"
           />
-          <p className="text-[17px] font-[600] text-[#272727] pb-[15px]">
+          <p className="text-[#272727] md:text-[18px] text-[17px] md:font-medium pb-[15px]">
             When an unknown printer took galley of type and scrambled it to make
             pspecimen bookt has.
           </p>
           <div className="flex items-center gap-[10px] pb-[8px]">
             <FaLocationDot className="text-[20px]" />
-            <p className="text-[17px] font-[600] text-[#272727]">
+            <p className="text-[#272727] md:text-[18px] text-[17px] md:font-medium">
               463 7th Ave, NY 10018, USA
             </p>
           </div>
           <div className="flex items-center gap-[10px]">
             <FaPhoneAlt className="text-[20px]" />
-            <p className="text-[17px] font-[600] text-[#272727]">
+            <p className="text-[#272727] md:text-[18px] text-[17px] md:font-medium">
               +123 88 9900 456
             </p>
           </div>
@@ -98,7 +98,7 @@ const Footer = () => {
                   <MdKeyboardDoubleArrowRight className="text-[#ffa03a]" />
                 </span>
                 <Link
-                  className="hover:text-[#ffa03a] md:text-[17px] md:font-semibold text-[#272727]"
+                  className="hover:text-[#ffa03a] md:text-[18px] text-[17px] md:font-medium text-[#272727]"
                   to={link?.path}
                 >
                   {link?.display}
@@ -116,7 +116,7 @@ const Footer = () => {
                   <MdKeyboardDoubleArrowRight className="text-[#ffa03a]" />
                 </span>
                 <Link
-                  className="hover:text-[#ffa03a] md:text-[17px] md:font-semibold text-[#272727]"
+                  className="hover:text-[#ffa03a] md:text-[18px] text-[17px] md:font-medium text-[#272727]"
                   to={link?.path}
                 >
                   {link?.display}
@@ -128,8 +128,8 @@ const Footer = () => {
         <div className="col-span-2 md:col-span-1">
           <h4 className="text-[20px] font-bold pb-[15px]">Get In Touch</h4>
 
-          <p className="text-[17px] font-[600] text-[#272727] pb-[15px]">
-            when an unknown printer took galley type and scrambled
+          <p className="md:text-[18px] text-[17px] md:font-medium text-[#272727] pb-[15px]">
+            When an unknown printer took galley type and scrambled
           </p>
           <div className="flex items-center gap-[10px] pb-[20px]">
             <FaFacebookF className="text-[25px] hover:text-[#ffa03a] hover:translate-y-[-4px] duration-500" />

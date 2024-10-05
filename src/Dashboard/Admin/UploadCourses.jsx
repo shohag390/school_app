@@ -43,7 +43,7 @@ const UploadCourses = () => {
     setLoading(true);
 
     try {
-      const res = await fetch(`http://localhost:3001/api/course/upload`, {
+      const res = await fetch(`${BASE_URL}/course/upload`, {
         method: "post",
         headers: {
           "Content-Type": "application/json",
@@ -89,7 +89,7 @@ const UploadCourses = () => {
             <label className="font-semibold">Course Name*</label>
             <input
               required
-              className="py-[6px] border-[1px] focus:outline-none border-[#49088A] px-[20px] rounded-md"
+              className="py-[8px] px-[20px] rounded-md w-full input_shadow"
               type="text"
               placeholder="Enter your course name"
               name="name"
@@ -101,7 +101,7 @@ const UploadCourses = () => {
             <label className="font-semibold">Categorie*</label>
             <input
               required
-              className="py-[6px] border-[1px] focus:outline-none border-[#49088A] px-[20px] rounded-md"
+              className="py-[8px] px-[20px] rounded-md w-full input_shadow"
               type="text"
               placeholder="Categorie"
               name="categorie"
@@ -115,7 +115,7 @@ const UploadCourses = () => {
             <label className="font-semibold">Course duration*</label>
             <input
               required
-              className="py-[6px] border-[1px] focus:outline-none border-[#49088A] px-[20px] rounded-md"
+              className="py-[8px] px-[20px] rounded-md w-full input_shadow"
               type="text"
               placeholder="month/week"
               name="duration"
@@ -123,25 +123,11 @@ const UploadCourses = () => {
               onChange={handleInputChange}
             />
           </div>
-          {/* <div className="flex flex-col gap-[2px] w-[50%]">
-            <label className="font-semibold">Certifications*</label>
-            <input
-              required
-              className="py-[6px] border-[1px] focus:outline-none border-[#49088A] px-[20px] rounded-md"
-              type="text"
-              placeholder="Yes/No"
-              name="certifications"
-              value={formData.certifications}
-              onChange={handleInputChange}
-            />
-          </div> */}
-        </div>
-        <div className="flex w-full gap-[20px]">
-          <div className="flex flex-col gap-[2px] w-[33%]">
+          <div className="flex flex-col gap-[2px] w-[50%]">
             <label className="font-semibold">Lessons*</label>
             <input
               required
-              className="py-[6px] border-[1px] focus:outline-none border-[#49088A] px-[20px] rounded-md"
+              className="py-[8px] px-[20px] rounded-md w-full input_shadow"
               type="number"
               placeholder="Lessons"
               name="lessons"
@@ -149,11 +135,13 @@ const UploadCourses = () => {
               onChange={handleInputChange}
             />
           </div>
-          <div className="flex flex-col gap-[2px] w-[33%]">
+        </div>
+        <div className="flex w-full gap-[20px]">
+          <div className="flex flex-col gap-[2px] w-[50%]">
             <label className="font-semibold">Quizzes*</label>
             <input
               required
-              className="py-[6px] border-[1px] focus:outline-none border-[#49088A] px-[20px] rounded-md"
+              className="py-[8px] px-[20px] rounded-md w-full input_shadow"
               type="number"
               placeholder="Quizzes No"
               name="quizzes"
@@ -161,11 +149,11 @@ const UploadCourses = () => {
               onChange={handleInputChange}
             />
           </div>
-          <div className="flex flex-col gap-[2px] w-[33%]">
+          <div className="flex flex-col gap-[2px] w-[50%]">
             <label className="font-semibold">Course Price*</label>
             <input
               required
-              className="py-[6px] border-[1px] focus:outline-none border-[#49088A] px-[20px] rounded-md"
+              className="py-[8px] px-[20px] rounded-md w-full input_shadow"
               type="number"
               placeholder="Course Price"
               name="price"
@@ -174,9 +162,21 @@ const UploadCourses = () => {
             />
           </div>
         </div>
+        <div className="flex flex-col gap-[2px] w-full">
+          <label className="font-semibold">Description*</label>
+          <textarea
+            required
+            rows={5}
+            name="description"
+            value={formData.description}
+            onChange={handleInputChange}
+            className="py-[8px] px-[20px] rounded-md w-full input_shadow"
+            placeholder="Course Description"
+          />
+        </div>
         <div className="flex items-center gap-3">
           {selectFile && (
-            <figure className="w-[60px] h-[60px] rounded-full border-2 border-solid border-primaryColor flex items-center justify-center">
+            <figure className="w-[40px] h-[40px] rounded-full border-2 border-solid border-primaryColor flex items-center justify-center">
               <img
                 src={previewURL}
                 className="w-full h-full rounded-full"
@@ -184,7 +184,7 @@ const UploadCourses = () => {
               />
             </figure>
           )}
-          <div className="relative w-[200px] h-[100px]">
+          <div className="relative w-[130px] h-[40px]">
             <input
               required
               type="file"
@@ -196,29 +196,21 @@ const UploadCourses = () => {
             />
             <label
               htmlFor="customFile"
-              className="absolute top-0 left-0 flex flex-col items-center justify-center bg-[#ffffff] w-full h-full overflow-hidden border-[1px] focus:outline-none border-[#49088A] rounded-md"
+              className="absolute top-0 left-0 w-full h-full flex items-center justify-center text-[15px] overflow-hidden bg-[#ffffff] font-semibold cursor-pointer rounded-md input_shadow text-[#272727]"
             >
-              <IoMdCloudUpload className="text-[50px]" />
-              <span>Click & Choose Photo</span>
+              Upload Photo
             </label>
           </div>
         </div>
-        <div className="flex flex-col gap-[2px] w-full">
-          <label className="font-semibold">Description*</label>
-          <textarea
-            required
-            rows={5}
-            name="description"
-            value={formData.description}
-            onChange={handleInputChange}
-            className="py-[6px] border-[1px] focus:outline-none border-[#49088A] px-[20px] rounded-md"
-            placeholder="Course Description"
-          />
-        </div>
+
         <div>
-          <button disabled={loading && true} type="submit" className="">
+          <button
+            disabled={loading && true}
+            type="submit"
+            className="btn py-[8px] w-full rounded-md"
+          >
             {loading ? (
-              <HashLoader size={10} color="#ffffff" />
+              <HashLoader size={18} color="#ffffff" />
             ) : (
               "Upload Course"
             )}
