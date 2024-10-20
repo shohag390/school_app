@@ -1,10 +1,10 @@
 import React from "react";
-import HashLoader from "react-spinners/HashLoader";
+import GridLoader from "react-spinners/GridLoader";
 
 const Loading = () => {
   return (
     <div className="flex items-center justify-center w-full h-[90vh]">
-      <HashLoader color="#0067ff" />
+      <GridLoader color="#ffa03a" size={16} />
     </div>
   );
 };

@@ -2,7 +2,6 @@ import React from "react";
 import { Route, Routes } from "react-router-dom";
 import Home from "../Pages/Home";
 import Contacts from "../Components/Contacts/Contacts";
-import Blog from "../Components/Blog/Blog";
 import Courses from "../Components/Courses/Courses";
 import CoursesDtls from "../Components/Courses/CoursesDtls";
 import EnrollPay from "../Components/Courses/EnrollPay";
@@ -13,6 +12,7 @@ import AllCourse from "../Components/Courses/AllCourse";
 import ProtectedRoute from "./ProtectedRoute";
 import UserAccount from "../Dashboard/User/UserAccount";
 import AdminAccount from "../Dashboard/Admin/AdminAccount";
+import HomeBlogs from "../Components/Blog/HomeBlogs";
 
 const Routing = () => {
   return (
@@ -24,7 +24,7 @@ const Routing = () => {
       <Route path="/allcourses" element={<AllCourse />} />
       <Route path="/courses/:id" element={<CoursesDtls />} />
       <Route path="/payenroll" element={<EnrollPay />} />
-      <Route path="/blog" element={<Blog />} />
+      <Route path="/blog" element={<HomeBlogs />} />
       <Route path="/contacts" element={<Contacts />} />
       <Route path="/signup" element={<Signup />} />
       <Route path="/login" element={<Login />} />

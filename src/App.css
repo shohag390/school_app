@@ -4,6 +4,13 @@
   background-repeat: no-repeat;
   background-size: contain;
 }
+
+.text_style_white {
+  background-image: url(./assets/images/line-bg-white.png);
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
 .box_style {
   background: #ffffff26;
   border: 1px solid #ffffff2e;
@@ -24,6 +31,7 @@
 .hover_effect:hover {
   box-shadow: 8px 8px 3px gray;
   border: 1px solid gray;
+  transition: 0.3s !important;
 }
 
 .back_color_fact {
@@ -66,6 +74,12 @@
 .btn:hover {
   background-color: #ffa03a;
   box-shadow: none;
+}
+
+.btn_icone:hover {
+  box-shadow: 4px 4px 2px #272727;
+  background-color: #6045ff;
+  color: #ffffff;
 }
 
 input[type="number"]::-webkit-inner-spin-button,

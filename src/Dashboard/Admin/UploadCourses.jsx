@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { IoMdCloudUpload } from "react-icons/io";
 import { toast } from "react-toastify";
-import HashLoader from "react-spinners/HashLoader";
+import GridLoader from "react-spinners/GridLoader";
 import uploadImageToCloudinary from "../../utils/uploadCloudinary";
 import { BASE_URL, token } from "../../config";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const UploadCourses = () => {
   const [selectFile, setSelectFile] = useState(null);
@@ -74,6 +76,12 @@ const UploadCourses = () => {
       setLoading(false);
     }
   };
+
+  useEffect(() => {
+    AOS.init({
+      duration: "1000",
+    });
+  }, []);
   return (
     <div>
       <div className="font-bold flex items-center gap-[8px] text-[#272727] pb-[30px]">
@@ -83,13 +91,19 @@ const UploadCourses = () => {
       <form
         onSubmit={submitHandler}
         className="w-full flex flex-col gap-[20px]"
+        data-aos="zoom-in-left"
       >
         <div className="flex w-full gap-[20px]">
           <div className="flex flex-col gap-[2px] w-[50%]">
-            <label className="font-semibold">Course Name*</label>
+            <label
+              className="lg:text-[18px] md:text-[17px] sm:text-[16px] text-[#43392d] lg:font-semibold md:font-medium font-normal
+"
+            >
+              Course Name*
+            </label>
             <input
               required
-              className="py-[8px] px-[20px] rounded-md w-full input_shadow"
+              className="py-[8px] px-[20px] rounded-md w-full input_shadow lg:text-[19px] md:text-[18px] sm:text-[16px] text-[#43392d] lg:font-semibold md:font-medium font-normal"
               type="text"
               placeholder="Enter your course name"
               name="name"
@@ -98,10 +112,12 @@ const UploadCourses = () => {
             />
           </div>
           <div className="flex flex-col gap-[2px] w-[50%]">
-            <label className="font-semibold">Categorie*</label>
+            <label className="lg:text-[18px] md:text-[17px] sm:text-[16px] text-[#43392d] lg:font-semibold md:font-medium font-normal">
+              Categorie*
+            </label>
             <input
               required
-              className="py-[8px] px-[20px] rounded-md w-full input_shadow"
+              className="py-[8px] px-[20px] rounded-md w-full input_shadow lg:text-[19px] md:text-[18px] sm:text-[16px] text-[#43392d] lg:font-semibold md:font-medium font-normal"
               type="text"
               placeholder="Categorie"
               name="categorie"
@@ -112,10 +128,12 @@ const UploadCourses = () => {
         </div>
         <div className="flex w-full gap-[20px]">
           <div className="flex flex-col gap-[2px] w-[50%]">
-            <label className="font-semibold">Course duration*</label>
+            <label className="lg:text-[18px] md:text-[17px] sm:text-[16px] text-[#43392d] lg:font-semibold md:font-medium font-normal">
+              Course duration*
+            </label>
             <input
               required
-              className="py-[8px] px-[20px] rounded-md w-full input_shadow"
+              className="py-[8px] px-[20px] rounded-md w-full input_shadow lg:text-[19px] md:text-[18px] sm:text-[16px] text-[#43392d] lg:font-semibold md:font-medium font-normal"
               type="text"
               placeholder="month/week"
               name="duration"
@@ -124,10 +142,12 @@ const UploadCourses = () => {
             />
           </div>
           <div className="flex flex-col gap-[2px] w-[50%]">
-            <label className="font-semibold">Lessons*</label>
+            <label className="lg:text-[18px] md:text-[17px] sm:text-[16px] text-[#43392d] lg:font-semibold md:font-medium font-normal">
+              Lessons*
+            </label>
             <input
               required
-              className="py-[8px] px-[20px] rounded-md w-full input_shadow"
+              className="py-[8px] px-[20px] rounded-md w-full input_shadow lg:text-[19px] md:text-[18px] sm:text-[16px] text-[#43392d] lg:font-semibold md:font-medium font-normal"
               type="number"
               placeholder="Lessons"
               name="lessons"
@@ -138,10 +158,12 @@ const UploadCourses = () => {
         </div>
         <div className="flex w-full gap-[20px]">
           <div className="flex flex-col gap-[2px] w-[50%]">
-            <label className="font-semibold">Quizzes*</label>
+            <label className="lg:text-[18px] md:text-[17px] sm:text-[16px] text-[#43392d] lg:font-semibold md:font-medium font-normal">
+              Quizzes*
+            </label>
             <input
               required
-              className="py-[8px] px-[20px] rounded-md w-full input_shadow"
+              className="py-[8px] px-[20px] rounded-md w-full input_shadow lg:text-[19px] md:text-[18px] sm:text-[16px] text-[#43392d] lg:font-semibold md:font-medium font-normal"
               type="number"
               placeholder="Quizzes No"
               name="quizzes"
@@ -150,10 +172,12 @@ const UploadCourses = () => {
             />
           </div>
           <div className="flex flex-col gap-[2px] w-[50%]">
-            <label className="font-semibold">Course Price*</label>
+            <label className="lg:text-[18px] md:text-[17px] sm:text-[16px] text-[#43392d] lg:font-semibold md:font-medium font-normal">
+              Course Price*
+            </label>
             <input
               required
-              className="py-[8px] px-[20px] rounded-md w-full input_shadow"
+              className="py-[8px] px-[20px] rounded-md w-full input_shadow lg:text-[19px] md:text-[18px] sm:text-[16px] text-[#43392d] lg:font-semibold md:font-medium font-normal"
               type="number"
               placeholder="Course Price"
               name="price"
@@ -163,20 +187,22 @@ const UploadCourses = () => {
           </div>
         </div>
         <div className="flex flex-col gap-[2px] w-full">
-          <label className="font-semibold">Description*</label>
+          <label className="lg:text-[18px] md:text-[17px] sm:text-[16px] text-[#43392d] lg:font-semibold md:font-medium font-normal">
+            Description*
+          </label>
           <textarea
             required
             rows={5}
             name="description"
             value={formData.description}
             onChange={handleInputChange}
-            className="py-[8px] px-[20px] rounded-md w-full input_shadow"
+            className="py-[8px] px-[20px] rounded-md w-full input_shadow lg:text-[19px] md:text-[18px] sm:text-[16px] text-[#43392d] lg:font-semibold md:font-medium font-normal"
             placeholder="Course Description"
           />
         </div>
         <div className="flex items-center gap-3">
           {selectFile && (
-            <figure className="w-[40px] h-[40px] rounded-full border-2 border-solid border-primaryColor flex items-center justify-center">
+            <figure className="w-[45px] h-[45px] rounded-full border-2 border-solid border-primaryColor flex items-center justify-center">
               <img
                 src={previewURL}
                 className="w-full h-full rounded-full"
@@ -184,19 +210,19 @@ const UploadCourses = () => {
               />
             </figure>
           )}
-          <div className="relative w-[130px] h-[40px]">
+          <div className="relative w-[200px] h-[45px]">
             <input
               required
               type="file"
               name="photo"
               id="customFile"
               onChange={handleFileInputChange}
-              accept=".jpg,.png"
+              accept=".jpg,.png,.jpeg"
               className="absolute top-0 left-0 w-full h-full opacity-0 cursor-pointer"
             />
             <label
               htmlFor="customFile"
-              className="absolute top-0 left-0 w-full h-full flex items-center justify-center text-[15px] overflow-hidden bg-[#ffffff] font-semibold cursor-pointer rounded-md input_shadow text-[#272727]"
+              className="absolute top-0 left-0 w-full h-full flex items-center justify-center overflow-hidden bg-[#ffffff]  cursor-pointer rounded-md input_shadow py-[8px] px-[20px]  input_shadow lg:text-[19px] md:text-[18px] sm:text-[16px] text-[#43392d] lg:font-semibold md:font-medium font-normal"
             >
               Upload Photo
             </label>
@@ -210,7 +236,7 @@ const UploadCourses = () => {
             className="btn py-[8px] w-full rounded-md"
           >
             {loading ? (
-              <HashLoader size={18} color="#ffffff" />
+              <GridLoader size={2} color="#ffffff" />
             ) : (
               "Upload Course"
             )}

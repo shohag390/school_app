@@ -4,7 +4,7 @@ import uploadImageToCloudinary from "../../../utils/uploadCloudinary";
 import { BASE_URL } from "../../../config";
 import login_image from "../../../assets/images/signup-2.png";
 import { toast } from "react-toastify";
-import HashLoader from "react-spinners/HashLoader";
+import GridLoader from "react-spinners/GridLoader";
 
 const Signup = () => {
   const [selectFile, setSelectFile] = useState(null);
@@ -81,7 +81,7 @@ const Signup = () => {
           action=""
         >
           <input
-            className="py-[8px] px-[20px] rounded-md w-full input_shadow"
+            className="py-[8px] px-[20px] rounded-md w-full input_shadow lg:text-[19px] md:text-[18px] sm:text-[16px] text-[#43392d] lg:font-semibold md:font-medium font-normal"
             type="text"
             name="name"
             value={formData.name}
@@ -90,7 +90,7 @@ const Signup = () => {
             required
           />
           <input
-            className="py-[8px] px-[20px] rounded-md w-full input_shadow"
+            className="py-[8px] px-[20px] rounded-md w-full input_shadow lg:text-[19px] md:text-[18px] sm:text-[16px] text-[#43392d] lg:font-semibold md:font-medium font-normal"
             type="email"
             name="email"
             value={formData.email}
@@ -99,7 +99,7 @@ const Signup = () => {
             required
           />
           <input
-            className="py-[8px] px-[20px] rounded-md w-full input_shadow"
+            className="py-[8px] px-[20px] rounded-md w-full input_shadow lg:text-[19px] md:text-[18px] sm:text-[16px] text-[#43392d] lg:font-semibold md:font-medium font-normal"
             type="password"
             name="password"
             value={formData.password}
@@ -109,7 +109,7 @@ const Signup = () => {
           />
           <div className="flex items-center justify-between w-full gap-[15px]">
             <input
-              className="py-[8px] px-[20px] rounded-md w-full input_shadow"
+              className="py-[8px] px-[20px] rounded-md w-full input_shadow lg:text-[19px] md:text-[18px] sm:text-[16px] text-[#43392d] lg:font-semibold md:font-medium font-normal"
               type="number"
               name="phone"
               value={formData.phone}
@@ -118,7 +118,7 @@ const Signup = () => {
               required
             />
             <input
-              className="py-[8px] px-[20px] rounded-md w-full input_shadow"
+              className="py-[8px] px-[20px] rounded-md w-full input_shadow lg:text-[19px] md:text-[18px] sm:text-[16px] text-[#43392d] lg:font-semibold md:font-medium font-normal"
               type="text"
               name="occupation"
               value={formData.occupation}
@@ -134,13 +134,13 @@ const Signup = () => {
             rows={2}
             placeholder="Bio"
             required
-            className="py-[8px] px-[20px] rounded-md w-full input_shadow"
+            className="py-[8px] px-[20px] rounded-md w-full input_shadow lg:text-[19px] md:text-[18px] sm:text-[16px] text-[#43392d] lg:font-semibold md:font-medium font-normal"
           ></textarea>
 
           <div className="flex items-center justify-between w-full">
             <div className="flex items-center gap-3">
               {selectFile && (
-                <figure className="w-[40px] h-[40px] rounded-full border-[1px] border-[#272727] flex items-center justify-center">
+                <figure className="w-[45px] h-[45px] rounded-full border-[1px] border-[#272727] flex items-center justify-center">
                   <img
                     src={previewURL}
                     className="w-full h-full rounded-full"
@@ -148,7 +148,7 @@ const Signup = () => {
                   />
                 </figure>
               )}
-              <div className="relative w-[130px] h-[40px]">
+              <div className="relative w-[200px] h-[45px]">
                 <input
                   type="file"
                   required
@@ -160,7 +160,7 @@ const Signup = () => {
                 />
                 <label
                   htmlFor="customFile"
-                  className="absolute top-0 left-0 w-full h-full flex items-center justify-center text-[15px] overflow-hidden bg-[#ffffff] font-semibold cursor-pointer rounded-md input_shadow text-[#272727]"
+                  className="absolute top-0 left-0 w-full h-full flex items-center justify-center overflow-hidden bg-[#ffffff]  cursor-pointer rounded-md input_shadow py-[8px] px-[20px]  input_shadow lg:text-[19px] md:text-[18px] sm:text-[16px] text-[#43392d] lg:font-semibold md:font-medium font-normal"
                 >
                   Upload Photo
                 </label>
@@ -172,7 +172,7 @@ const Signup = () => {
                 name="role"
                 value={formData.role}
                 onChange={handleInputChange}
-                className="py-[8px] px-[20px] rounded-md w-full input_shadow text-[15px] text-[#272727] font-semibold "
+                className="py-[8px] px-[20px] rounded-md w-full input_shadow lg:text-[19px] md:text-[18px] sm:text-[16px] text-[#43392d] lg:font-semibold md:font-medium font-normal"
               >
                 <option value="student">student</option>
                 <option value="admin">techer</option>
@@ -184,14 +184,14 @@ const Signup = () => {
             <button
               disabled={loading && true}
               type="submit"
-              className="btn py-[8px] w-full rounded-md"
+              className="btn py-[10px] rounded-md w-full lg:text-[19px] md:text-[18px] sm:text-[16px] text-[#ffff] lg:font-semibold md:font-medium font-normal"
             >
-              {loading ? <HashLoader size={18} color="#ffffff" /> : "Sign Up"}
+              {loading ? <GridLoader size={2} color="#ffffff" /> : "Sign Up"}
             </button>
           </div>
         </form>
 
-        <p className="text-[#666464] md:text-[18px] text-[17px] md:font-medium pt-[20px] capitalize">
+        <p className="text-[#43392d] md:text-[18px] text-[17px] md:font-medium pt-[20px] capitalize">
           Don't have account?{" "}
           <Link className="text-[#6045ff] hover:text-[#ffa03a]" to={"/login"}>
             Login

@@ -7,7 +7,7 @@ import uploadImageToCloudinary from "../../utils/uploadCloudinary";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-const Settings = ({ data }) => {
+const UserSetting = ({ data }) => {
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
@@ -43,7 +43,7 @@ const Settings = ({ data }) => {
     e.preventDefault();
     setLoading(true);
     try {
-      const res = await fetch(`${BASE_URL}/instactor/${data._id}`, {
+      const res = await fetch(`${BASE_URL}/users/${data._id}`, {
         method: "PUT",
         headers: {
           "content-type": "application/json",
@@ -69,10 +69,9 @@ const Settings = ({ data }) => {
       duration: "1000",
     });
   }, []);
-
   return (
     <div>
-      <div className="font-bold flex items-center gap-[8px] text-[#272727] pb-[30px]">
+      <div className="font-bold flex items-center gap-[8px] text-[18px] text-[#43392d] capitalize pb-[30px]">
         <IoIosSettings className="text-[20px]" />
         <h4>Update Information</h4>
       </div>
@@ -170,4 +169,4 @@ const Settings = ({ data }) => {
   );
 };
 
-export default Settings;
+export default UserSetting;

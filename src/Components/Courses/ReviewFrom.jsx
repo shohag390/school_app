@@ -46,7 +46,7 @@ const ReviewFrom = () => {
   return (
     <form onSubmit={handleSubmitReview}>
       <div>
-        <h3 className="md:text-[17px] md:font-semibold text-[gray] md:pb-[20px] pb-[10px]">
+        <h3 className="lg:text-[19px] md:text-[18px] sm:text-[16px] text-[#43392d] lg:font-semibold md:font-medium font-normal">
           How would you rate the overall experience?
         </h3>
 
@@ -66,8 +66,8 @@ const ReviewFrom = () => {
                 }}
                 className={`${
                   index <= ((rating && hover) || hover)
-                    ? "text-yellowColor"
-                    : "text-gray-400"
+                    ? "text-[#ffa03a]"
+                    : "text-[gray]"
                 } bg-transparent border-none outline-none text-[22px] cursor-pointer`}
               >
                 <span>
@@ -79,7 +79,7 @@ const ReviewFrom = () => {
         </div>
       </div>
       <div className="mt-[30px]">
-        <h3 className="md:text-[17px] md:font-semibold text-[gray] md:pb-[20px] pb-[10px]">
+        <h3 className="lg:text-[19px] md:text-[18px] sm:text-[16px] text-[#43392d] lg:font-semibold md:font-medium font-normal pb-[10px]">
           Share your feedback or suggestions
         </h3>
         <textarea
@@ -89,7 +89,10 @@ const ReviewFrom = () => {
           onChange={(e) => setReviewText(e.target.value)}
         ></textarea>
       </div>
-      <button type="submit" className="btnOne py-[10px] px-[30px] mt-[20px]">
+      <button
+        type="submit"
+        className="md:py-[10px] py-[8px] px-[30px] mt-[30px] btn rounded-md"
+      >
         {loading ? <HashLoader size={20} color="#fff" /> : `Submit Feedback`}
       </button>
     </form>

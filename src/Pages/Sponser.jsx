@@ -1,4 +1,3 @@
-import React from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -36,23 +35,27 @@ const images = [
 
 const Sponser = () => {
   return (
-    <div className="md:px-[80px] px-[20px] md:py-[50px] py-[20px] w-full bg-[#6045ff] flex items-center justify-center">
+    <div className="lg:px-[80px] md:px-[50px] sm:px-[25px] px-[15px] lg:py-[50px] sm:py-[30px] py-[20px] w-full bg-[#6045ff] flex items-center justify-center">
       <Swiper
         loop={true}
         autoplay={{
-          delay: 4500,
+          delay: 2500,
           disableOnInteraction: false,
         }}
         breakpoints={{
           0: {
             slidesPerView: 2,
-            spaceBetween: 10,
+            spaceBetween: 20,
           },
-          768: {
+          675: {
             slidesPerView: 3,
-            spaceBetween: 10,
+            spaceBetween: 20,
           },
-          1024: {
+          935: {
+            slidesPerView: 4,
+            spaceBetween: 20,
+          },
+          1272: {
             slidesPerView: 5,
             spaceBetween: 20,
           },
@@ -63,10 +66,14 @@ const Sponser = () => {
         {images?.map((item, index) => (
           <SwiperSlide
             key={index}
-            className="md:h-[90px] h-[65px] w-full rounded-full box_style flex items-center justify-center"
+            className="lg:h-[90px] md:h-[70px]  h-[65px] w-full rounded-full box_style flex items-center justify-center"
           >
             <div>
-              <img className="md:h-[40px] h-[30px]" src={item?.image} alt="" />
+              <img
+                className="lg:h-[40px] md:h-[28px] h-[25px]"
+                src={item?.image}
+                alt=""
+              />
             </div>
           </SwiperSlide>
         ))}

@@ -49,18 +49,18 @@ const Navbar = () => {
         navbar
           ? "bg-[#f4f5f8] shadow-md border-b-[1px]"
           : "bg-[#ffffff] border-b-[1px]"
-      } flex items-center justify-between md:px-[80px] px-[20px] duration-500 md:h-[10vh] h-[8vh] sticky top-0 left-0 z-50`}
+      } flex items-center justify-between lg:px-[80px] md:px-[50px] sm:px-[25px] px-[15px] duration-500 md:h-[10vh] h-[8vh] sticky top-0 left-0 z-50`}
     >
       <Link to={"/"}>
-        <img src={logo} alt="" />
+        <img className="md:h-[40px] h-[38px]" src={logo} alt="" />
       </Link>
       <ul className="md:flex md:items-center md:gap-[40px] hidden">
         {navLink?.map((item, index) => (
           <li
             key={index}
             className={`${
-              navbar ? "text-[#272727]" : "text-[#272727]"
-            } md:text-[18px] text-[17px] md:font-medium `}
+              navbar ? "text-[#43392d]" : "text-[#43392d]"
+            } lg:text-[19px] md:text-[18px] sm:text-[16px] lg:font-semibold md:font-medium font-normal `}
           >
             <NavLink
               className={(navClass) =>
@@ -82,9 +82,7 @@ const Navbar = () => {
               }`}
             >
               <img
-                className={`md:h-[45px] md:w-[45px] h-[40px] w-[40px] rounded-full border-[2px] ${
-                  navbar ? "border-[#ffffff]" : "border-[#272727]"
-                }`}
+                className={`md:h-[45px] md:w-[45px] h-[40px] w-[40px] rounded-full border-[2px] border-[#43392d]`}
                 src={user?.photo}
                 alt=""
               />

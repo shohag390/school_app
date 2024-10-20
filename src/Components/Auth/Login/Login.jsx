@@ -4,7 +4,7 @@ import login_image from "../../../assets/images/shape-bg.png";
 import { BASE_URL } from "../../../config.js";
 import { toast } from "react-toastify";
 import { authContext } from "../../../context/AuthContext.jsx";
-import HashLoader from "react-spinners/HashLoader";
+import GridLoader from "react-spinners/GridLoader";
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -68,7 +68,7 @@ const Login = () => {
           action=""
         >
           <input
-            className="py-[10px] px-[20px] rounded-md w-full input_shadow"
+            className="py-[8px] px-[20px] rounded-md w-full input_shadow lg:text-[19px] md:text-[18px] sm:text-[16px] text-[#43392d] lg:font-semibold md:font-medium font-normal"
             type="email"
             name="email"
             value={formData.email}
@@ -78,7 +78,7 @@ const Login = () => {
           />
 
           <input
-            className="py-[10px] px-[20px] rounded-md w-full input_shadow"
+            className="py-[8px] px-[20px] rounded-md w-full input_shadow lg:text-[19px] md:text-[18px] sm:text-[16px] text-[#43392d] lg:font-semibold md:font-medium font-normal"
             type="password"
             name="password"
             value={formData.password}
@@ -91,13 +91,13 @@ const Login = () => {
             <button
               disabled={loading && true}
               type="submit"
-              className="btn py-[10px] w-full rounded-md"
+              className="btn py-[10px] rounded-md w-full lg:text-[19px] md:text-[18px] sm:text-[16px] text-[#ffff] lg:font-semibold md:font-medium font-normal"
             >
-              {loading ? <HashLoader size={18} color="#ffffff" /> : "Login"}
+              {loading ? <GridLoader size={2} color="#ffffff" /> : "Login"}
             </button>
           </div>
         </form>
-        <p className="text-[#666464] md:text-[18px] text-[17px] md:font-medium md:pt-[25px] pt-[20px] capitalize">
+        <p className="text-[#43392d] md:text-[18px] text-[17px] md:font-medium md:pt-[25px] pt-[20px] capitalize">
           Don't have account?{" "}
           <Link className="text-[#6045ff] hover:text-[#ffa03a]" to={"/signup"}>
             Sign Up Now

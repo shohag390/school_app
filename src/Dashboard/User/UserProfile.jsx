@@ -4,7 +4,7 @@ import { formatDate } from "../../utils/formatDate";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-const Profile = ({ data }) => {
+const UserProfile = ({ data }) => {
   useEffect(() => {
     AOS.init({
       duration: "1000",
@@ -45,7 +45,7 @@ const Profile = ({ data }) => {
           <h4 className="lg:text-[19px] md:text-[18px] sm:text-[16px] text-[#43392d] lg:font-semibold md:font-medium font-normal pb-[2px] md:w-[25%]">
             Skill/Occupation:
           </h4>
-          <h4 className="lg:text-[19px] md:text-[18px] sm:text-[16px] text-[#43392d] lg:font-semibold md:font-medium font-normal md:w-[75%]">
+          <h4 className="lg:text-[19px] md:text-[18px] sm:text-[16px] text-[#43392d] lg:font-semibold md:font-medium font-normal md:w-[75%] capitalize">
             {data?.occupation}
           </h4>
         </div>
@@ -70,4 +70,4 @@ const Profile = ({ data }) => {
   );
 };
 
-export default Profile;
+export default UserProfile;
