@@ -26,3 +26,17 @@ html {
 ::-webkit-scrollbar-thumb {
   background: #06042e;
 }
+
+.animation_arrow {
+  animation: animate 1s infinite alternate-reverse;
+  box-shadow: 0px 0px 2px #ffffff;
+}
+
+@keyframes animate {
+  0% {
+    transform: translateY(4px);
+  }
+  100% {
+    transform: translateY(-5px);
+  }
+}
